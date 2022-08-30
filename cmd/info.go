@@ -26,10 +26,10 @@ func infoCmd() *cobra.Command {
 func printInfo() {
 	const fmat = "%-25s %s\n"
 
-	printLogo(color.Cyan)
-	printTuple(fmat, "Configuration", config.K9sConfigFile, color.Cyan)
-	printTuple(fmat, "Logs", config.DefaultLogFile, color.Cyan)
-	printTuple(fmat, "Screen Dumps", getScreenDumpDirForInfo(), color.Cyan)
+	printLogo(color.Magenta)
+	printTuple(fmat, "Configuration", config.K9sConfigFile, color.Blue)
+	printTuple(fmat, "Logs", config.DefaultLogFile, color.Blue)
+	printTuple(fmat, "Screen Dumps", getScreenDumpDirForInfo(), color.Blue)
 }
 
 func printLogo(c color.Paint) {
