@@ -129,10 +129,12 @@ func (c *Configurator) RefreshStyles(context string) {
 		c.Styles = config.NewStyles()
 	} else {
 		c.Styles.Reset()
+		log.Info().Msg("Reset styles")
 	}
 	if err := c.Styles.Load(clusterSkins); err != nil {
 		log.Warn().Msgf("No context specific skin file found -- %s", clusterSkins)
 	} else {
+		log.Info().Msgf("Loaded context specific skin file -- %s", clusterSkins)
 		c.updateStyles(clusterSkins)
 		return
 	}
@@ -141,6 +143,8 @@ func (c *Configurator) RefreshStyles(context string) {
 		log.Warn().Msgf("No skin file found -- %s. Loading stock skins.", config.K9sStylesFile)
 		c.updateStyles("")
 		return
+	} else {
+		log.Info().Msgf("Loaded skin file -- %s", config.K9sStylesFile)
 	}
 	c.updateStyles(config.K9sStylesFile)
 }
