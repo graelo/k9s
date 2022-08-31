@@ -7,6 +7,7 @@ import (
 
 	"github.com/derailed/tview"
 	"github.com/gdamore/tcell/v2"
+	"github.com/rs/zerolog/log"
 	"gopkg.in/yaml.v2"
 )
 
@@ -547,6 +548,7 @@ func (s *Styles) Load(path string) error {
 	}
 
 	if err := yaml.Unmarshal(f, s); err != nil {
+		log.Warn().Msgf("Invalid yaml -- %s. Error -- %v", path, err)
 		return err
 	}
 	// s.fireStylesChanged()

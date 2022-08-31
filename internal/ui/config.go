@@ -140,7 +140,7 @@ func (c *Configurator) RefreshStyles(context string) {
 	}
 
 	if err := c.Styles.Load(config.K9sStylesFile); err != nil {
-		log.Warn().Msgf("No skin file found -- %s. Loading stock skins.", config.K9sStylesFile)
+		log.Warn().Msgf("Could not load skin file -- %s. Loading stock skins.", config.K9sStylesFile)
 		c.updateStyles("")
 		return
 	} else {
