@@ -13,7 +13,7 @@ func TestColorize(t *testing.T) {
 		c color.Paint
 		e string
 	}{
-		"white":   {"blee", color.LightGray, "\x1b[37mblee\x1b[0m"},
+		"white":   {"blee", color.White, "\x1b[37mblee\x1b[0m"},
 		"black":   {"blee", color.Black, "\x1b[30mblee\x1b[0m"},
 		"default": {"blee", 0, "blee"},
 	}
