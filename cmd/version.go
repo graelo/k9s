@@ -26,22 +26,22 @@ func versionCmd() *cobra.Command {
 
 func printVersion(short bool) {
 	const fmat = "%-20s %s\n"
-	var outputColor color.Paint
+	var sectionColor color.Paint
 
 	if short {
-		outputColor = -1
+		sectionColor = -1
 	} else {
-		outputColor = color.Blue
 		printLogo(color.Magenta)
+		sectionColor = color.Blue
 	}
-	printTuple(fmat, "Version", version, outputColor)
-	printTuple(fmat, "Commit", commit, outputColor)
-	printTuple(fmat, "Date", date, outputColor)
+	printTuple(fmat, "Version", sectionColor, version, color.Black)
+	printTuple(fmat, "Commit", sectionColor, commit, color.Black)
+	printTuple(fmat, "Date", sectionColor, date, color.Black)
 }
 
-func printTuple(fmat, section, value string, outputColor color.Paint) {
-	if outputColor != -1 {
-		fmt.Fprintf(out, fmat, color.Colorize(section+":", outputColor), color.Colorize(value, color.Black))
+func printTuple(fmat, section string, sectionColor color.Paint, value string, valueColor color.Paint) {
+	if sectionColor != -1 {
+		fmt.Fprintf(out, fmat, color.Colorize(section+":", sectionColor), color.Colorize(value, valueColor))
 		return
 	}
 	fmt.Fprintf(out, fmat, section, value)

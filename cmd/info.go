@@ -27,9 +27,9 @@ func printInfo() {
 	const fmat = "%-25s %s\n"
 
 	printLogo(color.Magenta)
-	printTuple(fmat, "Configuration", config.K9sConfigFile, color.Blue)
-	printTuple(fmat, "Logs", config.DefaultLogFile, color.Blue)
-	printTuple(fmat, "Screen Dumps", getScreenDumpDirForInfo(), color.Blue)
+	printTuple(fmat, "Configuration", color.Blue, config.K9sConfigFile, color.Black)
+	printTuple(fmat, "Logs", color.Blue, config.DefaultLogFile, color.Black)
+	printTuple(fmat, "Screen Dumps", color.Blue, getScreenDumpDirForInfo(), color.Black)
 }
 
 func printLogo(c color.Paint) {
